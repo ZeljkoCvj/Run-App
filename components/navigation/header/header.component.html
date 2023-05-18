@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <div class="toggle-btn-wrapper">
+    <button mat-raised-button (click)="toggleSideNav.emit()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div class="logo-wrapper">
+    <a routerLink="">Run Tracker</a>
+  </div>
+  <div class="nav-items-wrapper">
+    <a routerLink="/singup" *ngIf="!isAuth">Signup</a>
+    <a routerLink="/login" *ngIf="!isAuth">Login</a>
+    <a routerLink="/running" *ngIf="isAuth">Running</a>
+    <a *ngIf="isAuth" (click)="onLOgOut()">Logout</a>
+  </div>
+</mat-toolbar>

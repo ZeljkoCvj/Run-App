@@ -1,0 +1,30 @@
+<mat-card class="new-run-card">
+  <mat-card-header>
+    <mat-card-title>Start new Running</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Please select desire mode to start running</p>
+    <form #form="ngForm" (ngSubmit)="startRunning(form)">
+      <mat-form-field appearance="outline">
+        <mat-label>Running Mode</mat-label>
+        <mat-select name="runmode" ngModel name="run" required>
+          <mat-option *ngFor="let item of aviliableRunning" [value]="item.id">
+            {{ item.title }} ({{ item.duration }} min)</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+
+      <mat-divider></mat-divider>
+      <mat-card-actions>
+        <button
+          [disabled]="!form.valid"
+          type="submit"
+          mat-raised-button
+          color="primary"
+        >
+          Start
+        </button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</mat-card>

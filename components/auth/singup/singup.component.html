@@ -1,0 +1,103 @@
+<div class="signup-container">
+  <h1>Create Account</h1>
+  <form #form="ngForm" class="signup-form" (ngSubmit)="onSubmitSignup(form)">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter Name</mat-label>
+      <input ngModel name="inputName" required matInput #inputName="ngModel" />
+      <mat-error *ngIf="inputName.hasError('required')"
+        >Enter your name</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Enter Last Name</mat-label>
+      <input ngModel name="lastName" required matInput #lastName="ngModel" />
+      <mat-error *ngIf="lastName.hasError('required')"
+        >Enter your last name</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input
+        matInput
+        ngModel
+        name="birthDate"
+        required
+        [max]="maxDate"
+        #birthDateField="ngModel"
+        matInput
+        [matDatepicker]="picker"
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error>Birthday is Mandatory</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Enter email </mat-label>
+      <input
+        ngModel
+        name="email"
+        required
+        email
+        matInput
+        #email="ngModel"
+        placeholder="a@example.com"
+      />
+      <mat-error *ngIf="email.hasError('required')">Enter your email</mat-error>
+
+      <mat-error *ngIf="!email.hasError('required')"
+        >email is not valid</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Enter password </mat-label>
+      <input
+        ngModel
+        name="password"
+        required
+        minlength="8"
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        #password="ngModel"
+      />
+      <mat-hint align="end">{{ password.value?.length }} / 8</mat-hint>
+      <button
+        mat-icon-button
+        matSuffix
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+        (click)="hide = !hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+
+      <mat-error *ngIf="!password.hasError('required')"
+        >Sifra mora imati 8 ili vise karaktera</mat-error
+      >
+    </mat-form-field>
+    <mat-checkbox
+      ngModel
+      required
+      name="termsAndConditions"
+      class="form-checkbox"
+    >
+      I accept Terms and Policies.
+    </mat-checkbox>
+    <button
+      type="submit"
+      class="submit-button"
+      mat-raised-button
+      color="primary"
+      [disabled]="!form.valid"
+    >
+      Sign Up
+    </button>
+  </form>
+</div>

@@ -1,0 +1,49 @@
+.mat-icon {
+  width: 50px;
+}
+
+.mat-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.nav-items-wrapper {
+  width: 160px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.nav-items-wrapper a {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-items-wrapper a:hover {
+  color: bisque;
+  transition: 0.3s ease;
+}
+
+.logo-wrapper a {
+  text-decoration: none;
+  color: white;
+}
+@media screen and (max-width: 720px) {
+  .mat-toolbar {
+    justify-content: space-between;
+  }
+  .nav-items-wrapper {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 721px) {
+  .toggle-btn-wrapper,
+  .mat-sidenav {
+    display: none;
+  }
+}

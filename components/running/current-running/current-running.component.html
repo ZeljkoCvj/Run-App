@@ -1,0 +1,11 @@
+<div class="current-spinner-wrapper">
+  <mat-spinner value="{{ progess }}" mode="determinate"></mat-spinner>
+  <h1>Run progress</h1>
+  <p>{{ progess }} %</p>
+  <h5>
+    Running mode started :{{ runnigModeStarted.title }}
+    {{ runnigModeStarted.duration }}
+  </h5>
+  <p>{{ messege }}</p>
+  <button (click)="openDialog()" mat-raised-button color="warn">Stop</button>
+</div>

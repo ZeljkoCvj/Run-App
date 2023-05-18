@@ -1,0 +1,24 @@
+mat-sidenav-container,
+mat-sidenav-content {
+  height: 100%;
+  color: black;
+  text-decoration: none;
+}
+.mat-icon {
+  width: 50px;
+}
+@media screen and (max-width: 720px) {
+  .mat-toolbar {
+    justify-content: space-between;
+  }
+  .nav-items-wrapper {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 721px) {
+  .toggle-btn-wrapper,
+  .mat-sidenav {
+    display: none;
+  }
+}
